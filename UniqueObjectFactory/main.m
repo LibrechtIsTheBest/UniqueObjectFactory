@@ -36,6 +36,12 @@ int main(int argc, const char * argv[]) {
         NSLog(@"%@ %@", newAd1, newAd1.name);
         NSLog(@"%@ %@", comment1, comment1.name);
         
+        NSLog(@"---");
+        SFAdObject *ad = [[SFUniqueAdObjectFactory sharedFactory] objectWithIdentifier:@1];
+        NSLog(@"%@ %@", ad, ad.name);
+        
+        SFAdObject *comment = [[SFUniqueCommentObjectFactory sharedFactory] objectWithIdentifier:@1];
+        NSLog(@"%@ %@", comment, comment.name);
     }
     return 0;
 }

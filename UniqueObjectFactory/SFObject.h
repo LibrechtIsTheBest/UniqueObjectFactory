@@ -18,5 +18,6 @@
 + (instancetype)sharedFactory;
 
 - (__kindof SFObject *)objectWithDictionary:(NSDictionary *)dictionary;
+- (__kindof SFObject *)objectWithIdentifier:(NSNumber *)identifier;
 
 @end

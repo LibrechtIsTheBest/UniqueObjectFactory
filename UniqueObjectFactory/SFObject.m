@@ -34,6 +34,8 @@
 
 @synthesize pool = _pool;
 
+#pragma mark - Initialization
+
 + (instancetype)sharedFactory
 {
     @throw [NSException exceptionWithName:NSObjectNotAvailableException reason:@"SFUniqueObjectFactory is an abstract class" userInfo:nil];
@@ -48,10 +50,19 @@
     return self;
 }
 
+#pragma mark - Public
+
 - (__kindof SFObject *)objectWithDictionary:(NSDictionary *)dictionary
 {
     return [self objectOfClass:[SFObject class] withDictionary:dictionary];
 }
+
+- (__kindof SFObject *)objectWithIdentifier:(NSNumber *)identifier
+{
+    return [self.pool objectForKey:identifier];
+}
+
+#pragma mark - Private
 
 - (__kindof SFObject *)objectOfClass:(Class)class withDictionary:(NSDictionary *)dictionary
 {
