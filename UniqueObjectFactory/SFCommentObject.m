@@ -5,6 +5,11 @@
 
 @implementation SFCommentObject
 
+- (NSString *)description
+{
+    return [NSString stringWithFormat:@"%@ message: %@", [super description], self.message];
+}
+
 @end
 
 @implementation SFCommentObject (Fillable)

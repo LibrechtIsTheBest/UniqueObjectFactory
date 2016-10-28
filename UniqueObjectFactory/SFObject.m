@@ -5,6 +5,11 @@
 
 @implementation SFObject
 
+- (NSString *)description
+{
+    return [NSString stringWithFormat:@"<%@ %p>: id: %@ name: %@", [self class], self, self.identifier, self.name];
+}
+
 @end
 
 @implementation SFObject (Fillable)

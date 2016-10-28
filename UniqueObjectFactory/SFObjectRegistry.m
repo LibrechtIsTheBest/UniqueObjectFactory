@@ -1,19 +1,19 @@
-#import "SFUniqueObjectFactory.h"
+#import "SFObjectRegistry.h"
 #import "SFObject+Dictionary.h"
 
-@interface SFUniqueObjectFactory ()
+@interface SFObjectRegistry ()
 
 @property (nonatomic) NSCache <NSNumber *, SFObject *> *pool;
 
 @end
 
-@implementation SFUniqueObjectFactory
+@implementation SFObjectRegistry
 
 #pragma mark - Initialization
 
-+ (instancetype)sharedFactory
++ (instancetype)sharedRegistry
 {
-    static SFUniqueObjectFactory *sharedInstance = nil;
+    static SFObjectRegistry *sharedInstance = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         sharedInstance = [[self alloc] init];

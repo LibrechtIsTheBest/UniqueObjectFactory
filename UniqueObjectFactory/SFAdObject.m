@@ -3,11 +3,12 @@
 
 #import "SFMacroUtils.h"
 
-@interface SFAdObject ()
-
-@end
-
 @implementation SFAdObject
+
+- (NSString *)description
+{
+    return [NSString stringWithFormat:@"%@ price: %@", [super description], self.price];
+}
 
 @end
 

@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		64A048811DC32F0C00CF9F0C /* SFUniqueObjectFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 64A048801DC32F0C00CF9F0C /* SFUniqueObjectFactory.m */; };
+		64A048811DC32F0C00CF9F0C /* SFObjectRegistry.m in Sources */ = {isa = PBXBuildFile; fileRef = 64A048801DC32F0C00CF9F0C /* SFObjectRegistry.m */; };
 		F5DCB77B1DC249BE005E827A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F5DCB77A1DC249BE005E827A /* main.m */; };
 		F5DCB7831DC249E3005E827A /* SFObject.m in Sources */ = {isa = PBXBuildFile; fileRef = F5DCB7821DC249E3005E827A /* SFObject.m */; };
 		F5DCB7861DC24A30005E827A /* SFAdObject.m in Sources */ = {isa = PBXBuildFile; fileRef = F5DCB7851DC24A30005E827A /* SFAdObject.m */; };
@@ -27,8 +27,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		64A0487F1DC32F0C00CF9F0C /* SFUniqueObjectFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SFUniqueObjectFactory.h; sourceTree = "<group>"; };
-		64A048801DC32F0C00CF9F0C /* SFUniqueObjectFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SFUniqueObjectFactory.m; sourceTree = "<group>"; };
+		64A0487F1DC32F0C00CF9F0C /* SFObjectRegistry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SFObjectRegistry.h; sourceTree = "<group>"; };
+		64A048801DC32F0C00CF9F0C /* SFObjectRegistry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SFObjectRegistry.m; sourceTree = "<group>"; };
 		F5DCB7771DC249BE005E827A /* UniqueObjectFactory */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = UniqueObjectFactory; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5DCB77A1DC249BE005E827A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		F5DCB7811DC249E3005E827A /* SFObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SFObject.h; sourceTree = "<group>"; };
@@ -74,8 +74,8 @@
 				F5DCB77A1DC249BE005E827A /* main.m */,
 				F5DCB78A1DC2502E005E827A /* SFMacroUtils.h */,
 				F5DCB7871DC24CC5005E827A /* SFObject+Dictionary.h */,
-				64A0487F1DC32F0C00CF9F0C /* SFUniqueObjectFactory.h */,
-				64A048801DC32F0C00CF9F0C /* SFUniqueObjectFactory.m */,
+				64A0487F1DC32F0C00CF9F0C /* SFObjectRegistry.h */,
+				64A048801DC32F0C00CF9F0C /* SFObjectRegistry.m */,
 				F5DCB7811DC249E3005E827A /* SFObject.h */,
 				F5DCB7821DC249E3005E827A /* SFObject.m */,
 				F5DCB7841DC24A30005E827A /* SFAdObject.h */,
@@ -142,7 +142,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				64A048811DC32F0C00CF9F0C /* SFUniqueObjectFactory.m in Sources */,
+				64A048811DC32F0C00CF9F0C /* SFObjectRegistry.m in Sources */,
 				F5DCB77B1DC249BE005E827A /* main.m in Sources */,
 				F5DCB78F1DC255C8005E827A /* SFCommentObject.m in Sources */,
 				F5DCB7861DC24A30005E827A /* SFAdObject.m in Sources */,

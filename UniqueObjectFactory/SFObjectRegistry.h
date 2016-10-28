@@ -2,9 +2,9 @@
 
 @class SFObject;
 
-@interface SFUniqueObjectFactory : NSObject
+@interface SFObjectRegistry : NSObject
 
-+ (instancetype)sharedFactory;
++ (instancetype)sharedRegistry;
 
 - (__kindof SFObject *)objectOfClass:(Class)objectClass withDictionary:(NSDictionary *)dictionary;
 
