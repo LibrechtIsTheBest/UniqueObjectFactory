@@ -35,7 +35,7 @@
 		F5DCB7821DC249E3005E827A /* SFObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SFObject.m; sourceTree = "<group>"; };
 		F5DCB7841DC24A30005E827A /* SFAdObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SFAdObject.h; sourceTree = "<group>"; };
 		F5DCB7851DC24A30005E827A /* SFAdObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SFAdObject.m; sourceTree = "<group>"; };
-		F5DCB7871DC24CC5005E827A /* SFObject+Fillable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SFObject+Fillable.h"; sourceTree = "<group>"; };
+		F5DCB7871DC24CC5005E827A /* SFObject+Dictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SFObject+Dictionary.h"; sourceTree = "<group>"; };
 		F5DCB78A1DC2502E005E827A /* SFMacroUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SFMacroUtils.h; sourceTree = "<group>"; };
 		F5DCB78D1DC255C8005E827A /* SFCommentObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SFCommentObject.h; sourceTree = "<group>"; };
 		F5DCB78E1DC255C8005E827A /* SFCommentObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SFCommentObject.m; sourceTree = "<group>"; };
@@ -73,7 +73,7 @@
 			children = (
 				F5DCB77A1DC249BE005E827A /* main.m */,
 				F5DCB78A1DC2502E005E827A /* SFMacroUtils.h */,
-				F5DCB7871DC24CC5005E827A /* SFObject+Fillable.h */,
+				F5DCB7871DC24CC5005E827A /* SFObject+Dictionary.h */,
 				64A0487F1DC32F0C00CF9F0C /* SFUniqueObjectFactory.h */,
 				64A048801DC32F0C00CF9F0C /* SFUniqueObjectFactory.m */,
 				F5DCB7811DC249E3005E827A /* SFObject.h */,
@@ -112,7 +112,7 @@
 		F5DCB76F1DC249BE005E827A /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0730;
+				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = "Vladislav Librecht";
 				TargetAttributes = {
 					F5DCB7761DC249BE005E827A = {
@@ -167,8 +167,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "-";
@@ -211,8 +213,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "-";

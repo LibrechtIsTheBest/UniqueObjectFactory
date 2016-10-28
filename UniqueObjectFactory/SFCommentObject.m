@@ -1,9 +1,13 @@
 #import "SFCommentObject.h"
-#import "SFObject+Fillable.h"
+#import "SFObject+Dictionary.h"
 
 #import "SFMacroUtils.h"
 
 @implementation SFCommentObject
+
+@end
+
+@implementation SFCommentObject (Fillable)
 
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary
 {
@@ -14,19 +18,15 @@
     return self;
 }
 
-- (void)_privateFillWithDictionary:(NSDictionary *)dictionary
-{
-    _message = EscapeNull(dictionary[@"message"]);
-}
-
-@end
-
-@implementation SFCommentObject (Fillable)
-
 - (void)fillWithDictionary:(NSDictionary *)dictionary
 {
     [super fillWithDictionary:dictionary];
     [self _privateFillWithDictionary:dictionary];
+}
+
+- (void)_privateFillWithDictionary:(NSDictionary *)dictionary
+{
+    _message = EscapeNull(dictionary[@"message"]);
 }
 
 @end

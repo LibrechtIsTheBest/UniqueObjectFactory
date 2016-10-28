@@ -1,9 +1,13 @@
 #import "SFObject.h"
-#import "SFObject+Fillable.h"
+#import "SFObject+Dictionary.h"
 
 #import "SFMacroUtils.h"
 
 @implementation SFObject
+
+@end
+
+@implementation SFObject (Fillable)
 
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary
 {
@@ -13,10 +17,6 @@
     }
     return self;
 }
-
-@end
-
-@implementation SFObject (Fillable)
 
 - (void)fillWithDictionary:(NSDictionary *)dictionary
 {

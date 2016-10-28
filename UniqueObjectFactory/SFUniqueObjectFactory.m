@@ -1,5 +1,5 @@
 #import "SFUniqueObjectFactory.h"
-#import "SFObject+Fillable.h"
+#import "SFObject+Dictionary.h"
 
 @interface SFUniqueObjectFactory ()
 
