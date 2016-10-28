@@ -3,7 +3,8 @@
 
 @interface SFObjectRegistry ()
 
-@property (nonatomic) NSCache <NSNumber *, SFObject *> *pool;
+//@property (nonatomic) NSCache <NSNumber *, SFObject *> *pool;
+@property (nonatomic) NSMutableDictionary <NSNumber *, SFObject *> *pool;
 
 @end
 
@@ -25,7 +26,7 @@
 {
     self = [super init];
     if (self) {
-        _pool = [[NSCache alloc] init];
+        _pool = [[NSMutableDictionary alloc] init];
     }
     return self;
 }
@@ -38,11 +39,13 @@
     
     if (result == nil) {
         result = [[objectClass alloc] initWithDictionary:dictionary];
+        [self registerObject:result];
     }
     else {
         [result fillWithDictionary:dictionary];
     }
-    [self registerObject:result];
+    
+    [self purge];
     
     return result;
 }
@@ -52,6 +55,15 @@
 - (void)registerObject:(SFObject *)object
 {
     [self.pool setObject:object forKey:object.identifier];
+}
+
+- (void)purge
+{
+    for (SFObject *object in self.pool) {
+        if (CFGetRetainCount((__bridge CFTypeRef)object) == 1) {
+            [self.pool removeObjectForKey:object.identifier];
+        }
+    }
 }
 
 @end
