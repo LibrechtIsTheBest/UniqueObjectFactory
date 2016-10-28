@@ -1,9 +1,7 @@
 #import "SFCommentObject.h"
-#import "SFObject+Registry.h"
+#import "SFObject+Fillable.h"
 
 #import "SFMacroUtils.h"
-
-#pragma mark - Object
 
 @implementation SFCommentObject
 
@@ -16,35 +14,19 @@
     return self;
 }
 
-- (void)fillWithDictionary:(NSDictionary *)dictionary
-{
-    [super fillWithDictionary:dictionary];
-    [self _privateFillWithDictionary:dictionary];
-}
-
 - (void)_privateFillWithDictionary:(NSDictionary *)dictionary
 {
     _message = EscapeNull(dictionary[@"message"]);
 }
+
 @end
 
-#pragma mark - Factory
+@implementation SFCommentObject (Fillable)
 
-@implementation SFUniqueCommentObjectFactory
-
-+ (instancetype)sharedFactory
+- (void)fillWithDictionary:(NSDictionary *)dictionary
 {
-    static SFUniqueCommentObjectFactory *sharedInstance = nil;
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        sharedInstance = [[self alloc] init];
-    });
-    return sharedInstance;
-}
-
-- (SFCommentObject *)objectWithDictionary:(NSDictionary *)dictionary
-{
-    return [self objectOfClass:[SFCommentObject class] withDictionary:dictionary];
+    [super fillWithDictionary:dictionary];
+    [self _privateFillWithDictionary:dictionary];
 }
 
 @end
