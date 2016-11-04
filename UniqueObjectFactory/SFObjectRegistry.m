@@ -1,10 +1,32 @@
 #import "SFObjectRegistry.h"
 #import "SFObject+Dictionary.h"
 
+#pragma mark -
+
+@interface SFObjectWeakWrapper : NSObject
+
+@property (weak, nonatomic) SFObject *object;
+
++ (instancetype)wrappedObjectWithObject:(SFObject *)object;
+
+@end
+
+@implementation SFObjectWeakWrapper
+
++ (instancetype)wrappedObjectWithObject:(SFObject *)object
+{
+    SFObjectWeakWrapper *instance = [[self alloc] init];
+    instance.object = object;
+    return instance;
+}
+
+@end
+
+#pragma mark -
+
 @interface SFObjectRegistry ()
 
-//@property (nonatomic) NSCache <NSNumber *, SFObject *> *pool;
-@property (nonatomic) NSMutableDictionary <NSNumber *, SFObject *> *pool;
+@property (nonatomic) NSMutableDictionary <NSNumber *, SFObjectWeakWrapper *> *pool;
 
 @end
 
@@ -35,7 +57,7 @@
 
 - (__kindof SFObject *)objectOfClass:(Class)objectClass withDictionary:(NSDictionary *)dictionary
 {
-    SFObject *result = [self.pool objectForKey:dictionary[@"identifier"]];
+    SFObject *result = [self.pool objectForKey:dictionary[@"identifier"]].object;
     
     if (result == nil) {
         result = [[objectClass alloc] initWithDictionary:dictionary];
@@ -54,16 +76,18 @@
 
 - (void)registerObject:(SFObject *)object
 {
-    [self.pool setObject:object forKey:object.identifier];
+    [self.pool setObject:[SFObjectWeakWrapper wrappedObjectWithObject:object] forKey:object.identifier];
 }
 
 - (void)purge
 {
-    for (SFObject *object in self.pool) {
-        if (CFGetRetainCount((__bridge CFTypeRef)object) == 1) {
-            [self.pool removeObjectForKey:object.identifier];
+    NSMutableArray <NSNumber *> *keysOfObjectsToDelete = [NSMutableArray array];
+    for (NSNumber *identifier in self.pool) {
+        if (self.pool[identifier].object == nil) {
+            [keysOfObjectsToDelete addObject:identifier];
         }
     }
+    [self.pool removeObjectsForKeys:keysOfObjectsToDelete];
 }
 
 @end
